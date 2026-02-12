@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Escape Room</title>
+  <link rel="stylesheet" href="styles/style.css">
+    
+
+</head>
+<body>
+
+<div class="container">
+
+  <h1>THE ESCAPE ROOM</h1>
+  <div class="subtitle">Solve the mystery of Professor</div>
+
+  <div id="timer">⏳ Time Left: 10:00</div>
+
+  <div class="story-text">
+    AI: I survived the fire. Ask carefully.
+  </div>
+
+  <!-- AI TERMINAL -->
+  <div class="terminal-box">
+    <div id="terminal" class="terminal-output"></div>
+
+    <div class="terminal-input">
+      <input id="userInput" placeholder="Ask the AI..." />
+      <button onclick="askAI()">ASK THE AI</button>
+    </div>
+  </div>
+
+  <!-- ACTION BAR -->
+  <div class="action-section">
+  <button class="hint-main-btn" onclick="location.href='hints.html'">
+    REQUEST HINT
+  </button>
+</div>
+
+
+  <div class="hints">
+    Hints Used: <span id="dots">○○○○○</span>
+  </div>
+
+</div>
+
+
+</div>
+
+<script src="js/script.js"></script>
+<script src="js/timer.js"></script>
+
+</body>
+</html>

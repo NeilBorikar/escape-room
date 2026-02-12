@@ -1,0 +1,33 @@
+<div class="container hint-container">
+
+  <div class="hint-header">
+    <button class="back-btn" onclick="location.href='index.html'">← BACK</button>
+    <div id="timer">⏳ --:--</div>
+  </div>
+
+  <h1>REQUEST INTELLIGENCE</h1>
+  <div class="subtitle">Each hint costs 10 seconds.</div>
+
+  <div class="hint-panel">
+
+    <select id="stageSelect" class="stage-select">
+      <option value="">Select Stage</option>
+      <option value="4">Stage 4</option>
+      <option value="5">Stage 5</option>
+      <option value="6">Stage 6</option>
+    </select>
+
+    <button class="hint-request-btn" onclick="getHint()">
+      DECRYPT HINT
+    </button>
+
+  </div>
+
+  <div id="hintBox" class="hint-display">
+    Awaiting stage selection...
+  </div>
+
+</div>
+
+<script src="js/timer.js"></script>
+<script src="js/hints.js"></script>

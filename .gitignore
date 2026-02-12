@@ -1,0 +1,99 @@
+# ==========================
+# PYTHON
+# ==========================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+# ==========================
+# FLASK
+# ==========================
+
+instance/
+.webassets-cache/
+
+# ==========================
+# ENV VARIABLES
+# ==========================
+
+.env
+.env.*
+*.env
+
+# ==========================
+# MODEL FILES (IMPORTANT)
+# ==========================
+
+# Sentence transformer cache
+.cache/
+models/
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# HuggingFace cache
+.huggingface/
+transformers_cache/
+
+# ==========================
+# DATABASE FILES
+# ==========================
+
+*.db
+*.sqlite3
+
+# ==========================
+# LOG FILES
+# ==========================
+
+*.log
+
+# ==========================
+# OS FILES
+# ==========================
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+
+# ==========================
+# IDE FILES
+# ==========================
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# ==========================
+# FRONTEND
+# ==========================
+
+node_modules/
+
+# ==========================
+# MISC
+# ==========================
+
+*.zip
+*.tar
+*.gz

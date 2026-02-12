@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Assistant</title>
+ <link rel="stylesheet" href="styles/style.css" />
+
+
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <button onclick="location.href='index.html'">⬅ Back</button>
+
+    <div id="timer">⏳ --:--</div>
+
+    <div></div>
+  </div>
+
+  <!-- AI TERMINAL -->
+  <div class="terminal-box">
+    <div id="terminal" class="terminal-output">
+      <div class="ai">
+        AI: I observe. I clarify. I do not intervene.
+      </div>
+    </div>
+
+    <div class="terminal-input">
+      <input
+        type="text"
+        id="userInput"
+        placeholder="Ask the AI..."
+        autocomplete="off"
+        onkeydown="if(event.key==='Enter'){askAI()}"
+      />
+      <button onclick="askAI()">Ask</button>
+    </div>
+  </div>
+
+  <script src="js/timer.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
