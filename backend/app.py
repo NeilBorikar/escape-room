@@ -80,6 +80,7 @@ def get_hint(stage):
 # -------------------------
 @app.route("/time", methods=["GET"])
 def get_time():
+    game_state.reset_if_needed()
     return jsonify({
         "time_left": game_state.time_left()
     })
@@ -88,6 +89,12 @@ def get_time():
 @app.route("/")
 def home():
     return "AI_ER backend is running 🚀"
+
+@app.route("/reset", methods=["POST"])
+def reset_game():
+    game_state.reset()
+    game_state.start_game()
+    return jsonify({"message": "Game restarted"})
 
 
 if __name__ == "__main__":

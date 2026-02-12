@@ -3,31 +3,45 @@ import time
 class GameState:
     def __init__(self):
         self.total_time = 10 * 60   # 10 minutes
-        self.start_time = time.time()   # 🔥 start immediately
-        self.current_stage = 2
-        self.hints_used = {}        # {stage: count}
+        self.start_time = time.time()
+        self.game_active = True
+
+        self.hints_used = {}
         self.max_hints_per_stage = 5
+
+        self.time_up_at = None  # ⏳ When timer hit 0
 
     # ⏳ remaining time
     def time_left(self):
-        elapsed = time.time() - self.start_time
-        return max(0, int(self.total_time - elapsed))
+        if not self.game_active:
+            return self.total_time
 
-    # ➖ deduct 10 seconds for hint
+        elapsed = time.time() - self.start_time
+        remaining = max(0, int(self.total_time - elapsed))
+
+        # Detect first time hitting zero
+        if remaining == 0 and self.time_up_at is None:
+            self.time_up_at = time.time()
+
+        return remaining
+
+    # ➖ deduct time for hints
     def deduct_time(self, seconds):
         self.total_time = max(0, self.total_time - seconds)
 
-    # 🔁 full reset (auto when time ends)
+    # 🔁 full reset
     def reset(self):
         self.total_time = 10 * 60
         self.start_time = time.time()
-        self.current_stage = 2
+        self.game_active = True
         self.hints_used = {}
+        self.time_up_at = None
 
-    # ⚠️ reset only when time finishes
+    # ⚠️ auto restart after 2 minutes of TIME UP
     def reset_if_needed(self):
-        if self.time_left() <= 0:
-            self.reset()
+        if self.time_up_at:
+            if time.time() - self.time_up_at >= 120:
+                self.reset()
 
 
 game_state = GameState()
