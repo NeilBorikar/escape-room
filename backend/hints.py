@@ -1,15 +1,27 @@
 HINTS = {
+    2: [
+        "If the page number mattered, this room would be boring.",
+        "Ink lies. Light never does.",
+        "Trust what bends — not what is printed."
+    ],
+    3: [
+        "Seven is obvious. Obvious is dangerous.",
+        "Not every color deserves a number.",
+        "Remove what can be divided."
+    ],
     4: [
-        "Fire destroys paper, not truth.",
-        "Only one year refused to disappear.",
-        "Ash hides many lies, but one number remains."
+        "Fire removes ink, not memory.",
+        "Scratches survive when paper does not.",
+        "If you are reading carefully, you are already late."
     ],
     5: [
-        "What survived now points forward.",
-        "The past still speaks if you listen."
+        "The correct file was ignored on purpose.",
+        "Recent things attract attention. Old things avoid it.",
+        "Subtract what everyone remembers."
     ],
     6: [
-        "The answer was always visible.",
-        "Nothing new was added. Only revealed."
+        "The clock is not wrong. Your direction is.",
+        "Time is lying — sequence is not.",
+        "Read the moments the way a mirror would ."
     ]
 }

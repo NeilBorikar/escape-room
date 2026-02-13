@@ -1,22 +1,26 @@
 QA_PAIRS = [
     {
-        "question": "what destroys paper",
-        "answer": "Fire destroys paper."
+        "question": "We know it’s related to PRISM, but how do we convert that into numbers",
+        "answer": "Light breaks into order. Count what light gives you — but not everything deserves to be counted."
     },
     {
-        "question": "what survived the fire",
-        "answer": "Something remained even after the fire."
+        "question": "Which numbers should we actually use",
+        "answer": "Some numbers refuse to share. Those are the ones that matter most here."
     },
     {
-        "question": "what remained after the fire",
-        "answer": "A single year survived."
+        "question": "The paper is damaged. How do we find the correct year",
+        "answer": "What survives fire often leaves marks. Scratches speak louder than ink."
     },
     {
-        "question": "what does the clue point to",
-        "answer": "It points forward to the next step."
+        "question": "There are many files. Which one should we open",
+        "answer": "The answer you want is not recent. Subtract what everyone remembers.."
     },
     {
-        "question": "what is the burnt newspaper about",
-        "answer": "It hides a year that refused to disappear."
+        "question": "None of the clock times make sense. What are we supposed to do here",
+        "answer": "You are not meant to read the clock."
+    },
+     {
+        "question": "So which time do we trust",
+        "answer": "You are not meant to read the clock."
     }
 ]
