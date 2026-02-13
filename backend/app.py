@@ -9,16 +9,18 @@ from hints import HINTS
 app = Flask(__name__)
 CORS(app)
 
+# 🔥 START TIMER ON SERVER BOOT
+game_state.start_game()
+
 # -------------------------
 # 🤖 AI CHATBOT
 # -------------------------
 @app.route("/ask", methods=["POST"])
 def ask_ai():
-    game_state.reset_if_needed()
 
-    if game_state.time_left() <= 0:
+    if not game_state.game_active:
         return jsonify({
-            "reply": "⏳ Time is up.",
+            "reply": "⏳ Time is up. The system is locked.",
             "time_left": 0,
             "time_up": True
         })
@@ -48,31 +50,58 @@ def ask_ai():
         "time_up": False
     })
 
+@app.route("/start", methods=["POST"])
+def start_game():
+    game_state.start_game()
+    return jsonify({"message": "Game started"})
+
 
 # -------------------------
 # 💡 HINT SYSTEM
 # -------------------------
 @app.route("/hint/<int:stage>", methods=["POST"])
 def get_hint(stage):
-    used = game_state.hints_used.get(stage, 0)
+
+    if not game_state.game_active:
+        return jsonify({
+            "reply": "⏳ Time is up. No hints allowed.",
+            "time_left": 0
+        })
+
+    # 🔒 TOTAL GAME LIMIT (5 only)
+    if game_state.total_hints_used >= game_state.max_total_hints:
+        return jsonify({
+            "reply": "No more hints available for this game.",
+            "time_left": game_state.time_left(),
+            "hints_used": game_state.total_hints_used,
+            "max_hints": game_state.max_total_hints
+        })
+
     hints = HINTS.get(stage, [])
 
-    if used >= len(hints):
+    used_for_stage = game_state.hints_used.get(stage, 0)
+
+    if used_for_stage >= len(hints):
         return jsonify({
-            "reply": "No more hints available.",
+            "reply": "No more hints for this stage.",
             "time_left": game_state.time_left()
         })
 
-    hint = hints[used]
-    game_state.hints_used[stage] = used + 1
+    hint = hints[used_for_stage]
 
-    # ➖ Deduct 10 seconds
+    game_state.hints_used[stage] = used_for_stage + 1
+    game_state.total_hints_used += 1
+
     game_state.deduct_time(10)
 
     return jsonify({
         "reply": hint,
-        "time_left": game_state.time_left()
+        "time_left": game_state.time_left(),
+        "hints_used": game_state.total_hints_used,
+        "max_hints": game_state.max_total_hints
     })
+
+
 
 
 # -------------------------
@@ -80,10 +109,11 @@ def get_hint(stage):
 # -------------------------
 @app.route("/time", methods=["GET"])
 def get_time():
-    game_state.reset_if_needed()
     return jsonify({
-        "time_left": game_state.time_left()
+        "time_left": game_state.time_left(),
+        "game_active": game_state.game_active
     })
+
 
 
 @app.route("/")
@@ -93,7 +123,7 @@ def home():
 @app.route("/reset", methods=["POST"])
 def reset_game():
     game_state.reset()
-    game_state.start_game()
+    #game_state.start_game()
     return jsonify({"message": "Game restarted"})
 
 

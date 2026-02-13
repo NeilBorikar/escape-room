@@ -15,7 +15,24 @@ async function getHint() {
     const data = await res.json();
     box.innerText = data.reply;
 
+    if (data.hints_used !== undefined) {
+      updateHintDots(data.hints_used);
+    }
+
   } catch (err) {
     box.innerText = "The system is silent.";
   }
 }
+
+function updateHintDots(count) {
+  const dots = document.querySelectorAll(".hint-dot");
+
+  dots.forEach((dot, index) => {
+    if (index < count) {
+      dot.classList.add("active");
+    } else {
+      dot.classList.remove("active");
+    }
+  });
+}
+

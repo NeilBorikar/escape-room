@@ -294,3 +294,16 @@ h1 {
     0 0 25px rgba(0,0,0,0.9),
     0 0 12px rgba(184,155,94,0.2) inset;
 }
+.hint-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #c9a74d;
+  margin: 0 4px;
+}
+
+.hint-dot.active {
+  background-color: #c9a74d;
+}
+
