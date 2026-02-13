@@ -1,5 +1,5 @@
 async function fetchTime() {
-  const res = await fetch("https://escape-room-yi58.onrender.com/time");
+  const res = await fetch("http://127.0.0.1:5000/time");
   const data = await res.json();
 
   let t = data.time_left;

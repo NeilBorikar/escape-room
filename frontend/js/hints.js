@@ -8,7 +8,7 @@ async function getHint() {
   }
 
   try {
-    const res = await fetch(`https://escape-room-yi58.onrender.com/hint/${stage}`, {
+    const res = await fetch(`http://127.0.0.1:5000/hint/${stage}`, {
       method: "POST"
     });
 
