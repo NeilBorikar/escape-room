@@ -28,7 +28,7 @@ async function askAI() {
   document.getElementById("userInput").value = "";
 
   try {
-    const res = await fetch("http://127.0.0.1:5000/ask", {
+    const res = await fetch("https://tv5gc8z9-5000.inc1.devtunnels.ms//ask", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question: input })
