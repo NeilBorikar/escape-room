@@ -1,6 +1,11 @@
 HINTS = {
+    1: ["You are adding things that were never meant to be added.",
+        "Some numbers exist before teams, words, or systems.",
+        "Smaller does not mean fewer — it means purer."
+        ],
+
     2: [
-        "If the page number mattered, this room would be boring.",
+        "If the page number did not mattered, this room would be boring.",
         "Ink lies. Light never does.",
         "Trust what bends — not what is printed."
     ],
