@@ -21,6 +21,10 @@ QA_PAIRS = [
     },
      {
         "question": "So which time do we trust",
-        "answer": "You are not meant to read the clock."
+        "answer": "Trust the order in which they appear.Each step leaves something behind"
+    },
+    {
+        "question": "what is 22nd rule",
+        "answer": "mirror the time"
     }
 ]

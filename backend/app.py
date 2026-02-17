@@ -92,7 +92,7 @@ def get_hint(stage):
     game_state.hints_used[stage] = used_for_stage + 1
     game_state.total_hints_used += 1
 
-    game_state.deduct_time(10)
+    game_state.deduct_time(15)
 
     return jsonify({
         "reply": hint,
