@@ -8,7 +8,7 @@ async function getHint() {
   }
 
   try {
-    const res = await fetch(`https://tv5gc8z9-5000.inc1.devtunnels.ms//hint/${stage}`, {
+    const res = await fetch(`http://127.0.0.1:5000//hint/${stage}`, {
       method: "POST"
     });
 

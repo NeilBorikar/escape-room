@@ -1,5 +1,5 @@
 async function fetchTime() {
-  const res = await fetch("https://tv5gc8z9-5000.inc1.devtunnels.ms//time");
+  const res = await fetch("http://127.0.0.1:5000//time");
   const data = await res.json();
 
   let t = data.time_left;
